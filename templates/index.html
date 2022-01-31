@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Arghajit</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            
+            header{
+                width: 100%;
+                min-height: 100vh;
+                background-image: url("https://github.com/Arghajit08/Diabetes/blob/main/images/old-book-open-dark-wood-background.jpg?raw=true");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                overflow: hidden;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            
+            .navbar {
+                display: flex;
+                position: relative;
+                justify-content: space-between;
+                align-items: center;
+                background-color: rgba(0,0,0,0);
+                color: white;
+                font-weight:900;
+            }
+            
+            .brand-title {
+                font-size: 1.5rem;
+                margin: .5rem;
+            }
+            
+            .navbar-links {
+                height: 100%;
+            }
+            
+            .navbar-links ul {
+                display: flex;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .navbar-links li {
+                list-style: none;
+            }
+            
+            .navbar-links li a {
+                display: block;
+                text-decoration: none;
+                font-weight:900;
+                color: white;
+                padding: 1rem;
+            }
+            
+            .navbar-links li:hover {
+                background-color: #555;
+            }
+            
+            .toggle-button {
+                position: absolute;
+                top: .75rem;
+                right: 1rem;
+                display: none;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 30px;
+                height: 21px;
+            }
+            
+            .toggle-button .bar {
+                height: 3px;
+                width: 100%;
+                background-color: white;
+                border-radius: 10px;
+            }
+            .container{
+                position:absolute;
+                backdrop-filter: blur(5px);
+                height: 100vh;
+                top: 25%;
+                left: 25%;
+                height: 50%;
+                width: 50%;
+                background: radial-gradient(at center, rgba(214, 202, 202, 0.05), rgba(224, 217, 217, 0.5));
+                border-radius: 8px;
+                box-shadow: 1px 1px 2px #5c5c5c, -1px -1px 2px #5c5c5c;
+                align-items:center;
+                z-index: 50;
+            }
+            .input-boxes{
+                margin-top:15%;
+                margin-left:10%;
+            }
+            .input-box{
+                width:100%;
+            }
+            .last{
+                width:95%;
+                padding:7px;
+            }
+            
+            @media (max-width: 800px) {
+                .navbar {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+            
+                .toggle-button {
+                    display: flex;
+                }
+            
+                .navbar-links {
+                    display: none;
+                    width: 100%;
+                    background-color:#000000;
+                }
+            
+                .navbar-links ul {
+                    width: 100%;
+                    flex-direction: column;
+                }
+            
+                .navbar-links ul li {
+                    text-align: center;
+                }
+            
+                .navbar-links ul li a {
+                    padding: .5rem 1rem;
+                    font-weight:900;
+                }
+            
+                .navbar-links.active {
+                    display: flex;
+                }
+                .input-box{
+                    width:100%;
+                }
+                .input-boxes{
+                    
+                    margin-top:5%;
+                    margin-left:5%;
+                }
+                .container{
+                    position:absolute;
+                    backdrop-filter: blur(5px);
+                    height: 100vh;
+                    top: 25%;
+                    left: 25%;
+                    height: 50%;
+                    width: 50%;
+                    background: radial-gradient(at center, rgba(214, 202, 202, 0.05), rgba(224, 217, 217, 0.5));
+                    border-radius: 8px;
+                    box-shadow: 1px 1px 2px #5c5c5c, -1px -1px 2px #5c5c5c;
+                    align-items:center;
+                    z-index: 50;
+                }
+                .last{
+                    width:95%;
+                    padding:7px;
+                }
+            }
+        </style>
+        
+    </head>
+    <body>
+        <header>  
+            <nav class="navbar">
+                <div class="brand-title">Print Anything</div>
+                <a href="#" class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                </a>
+                <div class="navbar-links">
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                </div>
+                <script>
+                    const toggleButton = document.getElementsByClassName('toggle-button')[0]
+                    const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+        
+                    toggleButton.addEventListener('click', () => {
+                        navbarLinks.classList.toggle('active')
+                    })
+                </script>
+            </nav>
+            <div class="container">
+                <form name=main action="{% url 'result'%}" method="get">
+        
+                    <div class="input-boxes">
+                      <div class="input-box">Name
+                        <input class="last" type="text" required name="name" placeholder="Enter Your Name" required>
+                      </div>
+                      <div class="input-box">Address
+                        <input class="last" type="text" required name="P" placeholder="Enter Your Address" required>
+                      </div>
+                      <div class="input-box">Phone Number
+                        <input class="last" type="number" required name="G" placeholder="Enter Your Phone Number" required>
+                      </div>
+                      <div class="input-box">Category
+                        <select required name="category" id="schoolContainer" required>
+                            <option value="spiral">Spiral</option>
+				            <option value="staple">Staple</option>
+				            <option value="sellotape">Sellotape</option>
+				            <option value="binding">Binding</option>
+                        </select>
+                      </div>
+                      <div class="input-box">
+                        <input type="submit" value="Upload" onclick="main.action='{% url 'result'%}'; return true;">
+                      </div>
+                    </div>
+                  </form>
+            </div>
+        </header>
+    </body>
+</html>
