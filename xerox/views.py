@@ -10,13 +10,13 @@ def result(request):
     print(document)
     from twilio.rest import Client
     
-    sid='ACad20495dd3bf324541f3c9a60657ddf9'
-    authToken='5d3c2624cbf97a9e35b4c18e2205617f'
+    sid='ACf558482fe175137e372639a0cd29b1cc'
+    authToken='693e1ebab99979db58a1a4279f2e5c94'
 
     client=Client(sid,authToken)
 
     from_whatsapp_number='whatsapp:+14155238886'
-    to_whatsapp_number='whatsapp:+919863103113'
+    to_whatsapp_number='whatsapp:+916009966876'
     
     message=client.messages.create(body=name,
                                    from_=from_whatsapp_number,
