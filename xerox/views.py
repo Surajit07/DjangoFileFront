@@ -34,4 +34,4 @@ def result(request):
                                    from_=from_whatsapp_number,
                                    to=to_whatsapp_number)
     
-    return redirect("https://xeroxfin.herokuapp.com/")
+    return redirect("https://printinallpdf.herokuapp.com/")
